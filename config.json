@@ -1,0 +1,9 @@
+{
+  "host": "0.0.0.0",
+  "port": 80,
+  "debug_comment": "DEBUG BLANK FOR OFF true FOR ON (off to run in thread)",
+  "debug": "",
+  "currentuser": "none",
+  "command": "none",
+  "log": "werkzeug"
+}

@@ -1,7 +1,7 @@
 # panel
 > This is another project that was worked on for a short time some odd years ago. Somehow Again, I found it still up and running on repl.it, Again It was origionally intended to be used for not legal things so now Its another personal security research project
 
-> just a note: this code is also probably ass
+> just a note: this code is also ass
 
 > these are cloned straight from the fcnc
 - [ ] Make origional branding but make it better

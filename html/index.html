@@ -1,0 +1,289 @@
+<style>
+	@import url(https://fonts.googleapis.com/css?family=Raleway:700,800);
+
+	html,
+	body {
+		margin: 0;
+	}
+
+	:focus {
+		outline: none;
+	}
+
+	::-webkit-input-placeholder {
+		color: #DEDFDF;
+	}
+
+	::-moz-placeholder {
+		color: #DEDFDF;
+	}
+
+	:-moz-placeholder {
+		color: #DEDFDF;
+	}
+
+	::-ms-input-placeholder {
+		color: #DEDFDF;
+	}
+
+	body {
+		background: #6ED0F6;
+		color: #fff;
+		font-family: 'Raleway', sans-serif;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	#wrapper,
+	label,
+	#arrow,
+	button span {
+		transition: all .5s cubic-bezier(.6, 0, .4, 1);
+	}
+
+	#wrapper {
+		overflow: hidden;
+	}
+
+	#signin:checked~#wrapper {
+		height: 172px;
+	}
+
+	#signin:checked~#wrapper #arrow {
+		left: 32px;
+	}
+
+	#signin:checked~button span {
+		transform: translate3d(0, -72px, 0);
+	}
+
+	#signup:checked~#wrapper {
+		height: 255px;
+	}
+
+	#signup:checked~#wrapper #arrow {
+		left: 137px;
+	}
+
+	#signup:checked~button span {
+		transform: translate3d(0, -144px, 0);
+	}
+
+	#reset:checked~#wrapper {
+		height: 90;
+	}
+
+	#reset:checked~#wrapper #arrow {
+		left: 404px;
+	}
+
+	#reset:checked~button span {
+		transform: translate3d(0, 0, 0);
+	}
+
+	.divform {
+		width: 450px;
+		height: 370px;
+		margin: -185px -225px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+	}
+
+	input[type=radio] {
+		display: none;
+	}
+
+	label {
+		cursor: pointer;
+		display: inline-block;
+		font-size: 22px;
+		font-weight: 800;
+		opacity: .5;
+		margin-bottom: 30px;
+		text-transform: uppercase;
+	}
+
+	label:hover {
+		transition: all .3s cubic-bezier(.6, 0, .4, 1);
+		opacity: 1;
+	}
+
+	label[for="signin"] {
+		margin-right: 20px;
+	}
+
+	label[for="reset"] {
+		float: right;
+	}
+
+	input[type=radio]:checked+label {
+		opacity: 1;
+	}
+
+	input[type=text],
+	input[type=password] {
+		background: #fff;
+		border: none;
+		border-radius: 20px;
+		font-size: 27px;
+		font-family: 'Raleway', sans-serif;
+		height: 72px;
+		width: 99.5%;
+		margin-bottom: 10px;
+		opacity: 1;
+		text-indent: 20px;
+		transition: all .2s ease-in-out;
+	}
+
+	button {
+		background: #079BCF;
+		border: none;
+		border-radius: 20px;
+		color: #fff;
+		cursor: pointer;
+		font-family: 'Raleway', sans-serif;
+		font-size: 27px;
+		height: 72px;
+		width: 100%;
+		margin-bottom: 10px;
+		overflow: hidden;
+		transition: all .3s cubic-bezier(.6, 0, .4, 1);
+	}
+
+	button span {
+		display: block;
+		line-height: 72px;
+		position: relative;
+		top: -2px;
+		transform: translate3d(0, 0, 0);
+	}
+
+	button:hover {
+		background: #007BA5;
+	}
+
+	#arrow {
+		height: 0;
+		width: 0;
+		border-bottom: 10px solid #fff;
+		border-left: 10px solid transparent;
+		border-right: 10px solid transparent;
+		position: relative;
+		left: 32px;
+	}
+</style>
+
+<title>Panel Login</title>
+<link rel="icon" href="https://i.imgur.com/kupbDHI.png">
+<div class="divform">
+  <center>
+  <h1 style="font-size: 40px;" id="response">Panel Login</h1>
+  </center>
+  <br>
+	<input checked="<%= true %>" id="signin" name="action" type="radio" value="signin" onclick="document.getElementById('repass').value = null">
+	</input>
+	<label for="signin">Sign in</label>
+	<input id="signup" name="action" type="radio" value="signup"></input>
+	<label for="signup">Sign up</label>
+	<input id="reset" name="action" type="radio" value="reset"></input>
+	<label for="reset">Reset</label>
+	<div id="wrapper">
+		<div id="arrow"></div>
+		<input id="username" placeholder="Username" type="text"></input>
+		<input id="pass" placeholder="Password" type="password"></input>
+		<input id="repass" placeholder="Repeat password" type="password"></input>
+	</div>
+	<button type="submit" onclick="run()">
+		<span> Reset password <br /> Sign in <br /> Sign up </span>
+	</button>
+  <center>
+  <p> Or use the telegram bot </p> <a href="https://t.me/panel_tele_bot"> @panel_tele_bot </a>
+  </center>
+</div>
+  
+<script>
+	function run() {
+		let username = document.getElementById("username");
+		let password = document.getElementById("pass");
+		let repassword = document.getElementById("repass");
+		if (username && username.value && password && password.value && repassword !== null && repassword.value === "") {
+			console.log("%cSignin", "color: blue; font-size: 20px");
+			log_userpass(username, password)
+			checklogin(username.value, password.value, "color: blue");
+		} else if (username && username.value && password && password.value && repassword && repassword.value) {
+			console.log("%cSignup", "color: blue; font-size: 20px");
+			log_userpass(username, password)
+			console.log("%crepassword : " + repassword.value, "color: blue");
+			if (repassword.value == password.value) {
+				signup(username.value, password.value)
+		} else {
+			console.log("%cERROR", "color: red; font-size: 20px");
+			console.log("%cPasswords do not match", "color: red;")
+      document.getElementById("response").innerHTML = "Passwords do not match";
+			}
+		} else {
+			console.log("%cUNEXPECTED ERROR", "color: red; font-size: 20px");
+      console.log("%cusername : " + username.value, "color: red");
+		  console.log("%cpassword : " + btoa(password.value), "color: red");
+		}
+	}
+
+	function checklogin(username, password) {
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET', '/api?signin=' + username + ":" + password, true), true
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4) {
+				let response = xhr.responseText.split(':');
+				let responsecode = response[0]
+				let key = response[1]
+				handle_response(responsecode, key)
+			}
+		};
+		xhr.send();
+	};
+
+	function signup(username, password) {
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET', '/api?signup=' + username + ":" + password, true), true
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4) {
+				let response = xhr.responseText.split(':');
+				let responsecode = response[0]
+				let key = response[1]
+				handle_response(responsecode, key)
+			}
+		};
+		xhr.send();
+	};
+
+	function handle_response(responsecode, key) {
+		if (responsecode == "OK") {
+			console.log("%cResponse : " + responsecode, "color: green;")
+			console.log("%cKey : " + key, "color: green;")
+      document.getElementById("response").innerHTML = "Success";
+      window.location.href = "/?key=" + key;
+		} else if (responsecode == "INVALID") {
+      console.log("%cERROR", "color: red; font-size: 20px");
+			console.log("%cResponse : " + responsecode, "color: red;")
+      document.getElementById("response").innerHTML = "Invalid";
+    } else if (responsecode == "Username Taken") {
+      console.log("%cERROR", "color: red; font-size: 20px");
+			console.log("%cResponse : " + responsecode, "color: red;")
+      document.getElementById("response").innerHTML = "Username Taken";
+    } else if (responsecode == "Account Created") {
+      console.log("%cSuccess", "color: green; font-size: 20px");
+			console.log("%cResponse : " + responsecode, "color: green;")
+      document.getElementById("response").innerHTML = "Account Created";
+		} else {
+      console.log("%cUnexpected Error", "color: red; font-size: 20px");
+			console.log("%cResponse : " + responsecode, "color: red;")
+			console.log("%cKey : " + key, "color: red;")
+      document.getElementById("response").innerHTML = "Unexpected Error";
+		}
+	}
+
+  function log_userpass(username, password) {
+    console.log("%cusername : " + username.value, "color: blue");
+		console.log("%cpassword : " + btoa(password.value), "color: blue");
+  }
+</script>

