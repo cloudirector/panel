@@ -1,4 +1,6 @@
 # panel
+- [ ] Add screenshots
+
 > I think its a successor to fcnc i dont remember
 
 > This is another project that was worked on for a short time some odd years ago. Somehow Again, I found it still up and running on repl.it, Again It was origionally intended to be used for not legal things so now Its another personal security research project
