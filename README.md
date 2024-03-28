@@ -26,6 +26,6 @@
   - [ ] Upgrade api for huh
   - [ ] Authentications
   - [ ] Anonominity tor meh
-- [ ] Add legal bullshit
+- [ ] Add legal bullshit becau idon wanna get my gh acc borked
 
 #  ``` THIS IS NOT TO BE USED FOR ANYTHING ILLEGAL AS THIS IS A SECURITY RESEARCH PROJECT. I AM NOT HELD ACCOUNTABLE FOR DAMAGES DONE DONE BY BAD ACTORS NOR WILL I SUPPORT ANY ILLEGAL ACTIONS. THIS IS OPENSOURCE CODE AND NOT A SERVICE```
