@@ -9,11 +9,7 @@
 
 > these are cloned straight from the fcnc
 - [ ] Make better goals
-- [ ] Translate to a better language
-  - [x] Prefered Options
-      - [ ] c yes
-      - [ ] elixir
-      - [ ] rust
+- [ ] Translate to c
 - [ ] Make it secure
   - [ ] Add vulnz scanning or develop a taskset to secure things
 - [ ] Work on malware
