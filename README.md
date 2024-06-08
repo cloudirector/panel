@@ -22,4 +22,4 @@
   - [ ] Upgrade api for huh
   - [ ] Authentications
   - [ ] Anonominity tor meh
-- [ ] Hack your face fag nerd
+- [ ] Hack your face nerd
