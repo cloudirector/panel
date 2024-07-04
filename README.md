@@ -3,7 +3,7 @@
 
 > I think its a successor to fcnc i dont remember
 
-> This is another project that was worked on for a short time some odd years ago. found it still running on old ahh repl.it account, was intended to be used for not legal things like a nerdo so now Its another security research project to get catch up at cyber huh
+> This is another project that was worked on for a short time some odd years ago. found it still running on my old repl.it account, was intended to be used for not legal things like a nerdo so now Its another security research project to get catch up at cyber huh
 
 > just a note: this code is also ass but is a whole lot better than other repo found
 
